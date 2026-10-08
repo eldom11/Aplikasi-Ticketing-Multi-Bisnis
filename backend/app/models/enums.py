@@ -14,7 +14,7 @@ class TicketStatus(str, enum.Enum):
     closed = "closed"
 
 
-class Priority(str, enum.Enum):
+class TicketPriority(str, enum.Enum):
     low = "low"
     medium = "medium"
     high = "high"

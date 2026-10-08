@@ -42,3 +42,12 @@ class UserCreate(BaseModel):
     @classmethod
     def lowercase_email(cls, v: str) -> str:
         return v.lower()
+    
+class UserBrief(BaseModel):
+    """Ringkasan user untuk ditampilkan di tiket dan pesan."""
+
+    model_config = ConfigDict(from_attributes=True)
+
+    id: int
+    name: str
+    role: Role

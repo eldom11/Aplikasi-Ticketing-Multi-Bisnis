@@ -54,7 +54,6 @@ def register_business(db: Session, data: RegisterBusinessRequest) -> User:
 def authenticate(db: Session, email: str, password: str) -> User:
     user = get_user_by_email(db, email)
     if not user or not verify_password(password, user.password_hash):
-        # Pesan sama untuk email salah dan password salah, supaya email tidak bisa ditebak
         raise HTTPException(
             status.HTTP_401_UNAUTHORIZED,
             "Email atau password salah",

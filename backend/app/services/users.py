@@ -22,7 +22,7 @@ def create_user(db: Session, admin: User, data: UserCreate) -> User:
         raise HTTPException(status.HTTP_409_CONFLICT, "Email sudah terdaftar")
 
     user = User(
-        business_id=admin.business_id,  # SELALU dari admin yang login, bukan dari body
+        business_id=admin.business_id, 
         name=data.name,
         email=data.email,
         password_hash=hash_password(data.password),
